@@ -10,6 +10,9 @@ int main()
    // space_info tempSpaceInfo; 
 
 
+
+    cout << paths.size() << endl;
+
     //loop through all search locations
     for (const string& word : paths)
     {
