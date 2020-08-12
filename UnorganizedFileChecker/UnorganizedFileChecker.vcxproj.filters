@@ -25,8 +25,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\FoldersToCheck.jp">
-      <Filter>Source Files</Filter>
+    <None Include="..\FoldersToCheck.txt">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

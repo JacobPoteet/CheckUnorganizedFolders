@@ -4,57 +4,79 @@
 #include "CheckForUnorganized.h"
 
 
-int main()
-{
+int main(){
 
     //Save all file locations as strings in a vector
-    vector<string> paths = LoadInPaths();
+    vector<fs::path> paths = LoadInPaths();
+    int totalSize = 0;
 
-    fs::space_info tempSpaceInfo; 
-
-
-
-    cout << paths.size() << endl;
-
-    //loop through all search locations
-    for (const string& word : paths)
-    {
-        tempSpaceInfo = fs::space(word);
-        cout << endl; 
-        cout << word << " ";
-    }
+    PrintString("Processing...");
     cout << endl;
 
+    //------------------------------------------
+    //print empty folders
+    PrintString("Empty folders:");
+    
+    for (unsigned int i = 0; i < paths.size(); i++) {
+
+        if (fs::is_empty(paths.at(i))){
+            PrintString(paths.at(i).string());
+
+        }
+    }
+    PrintString("");
+    //------------------------------------------
 
 
+    //------------------------------------------
+    //print folders and contents information
+    PrintString("Folder that need attention:");
+    for (unsigned int i = 0; i < paths.size(); i++) {
+
+        if (!(fs::is_empty(paths.at(i)))) {
+
+            fs::directory_iterator tempDirectorIter(paths.at(i));
+
+            totalSize = 0;
+            for (auto& p : fs::directory_iterator(paths.at(i))) {
+                totalSize += fs::file_size(p.path());
+           }
+
+            cout << paths.at(i).string() << " | ";
+            cout << (totalSize) << " bytes " << endl;
+
+        
+        }
+    }
+    //------------------------------------------
+
+
+    cout << endl;
     //let the user view all information before closing the console
     PauseCommandPrompt();
 
     return 0;
 }
 
-vector<string> LoadInPaths() {
+vector<fs::path> LoadInPaths() {
 
     string tempLine = "";
-    vector<string> returnVector;
+    vector<fs::path> returnVector;
     folderFile.open(FileToSearch);
 
+    //populate vector with paths
     while (getline(folderFile, tempLine)) {
-
-        returnVector.push_back(tempLine);
+        returnVector.push_back(fs::path(tempLine));
     }
-
 
     folderFile.close();
     return returnVector;
 }
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
+void PrintString(string message) {
+
+    cout << message << endl;
+
+    return;
+}

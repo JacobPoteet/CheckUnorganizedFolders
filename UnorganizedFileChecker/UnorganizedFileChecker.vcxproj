@@ -147,7 +147,7 @@
     <ClInclude Include="CheckForUnorganized.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\FoldersToCheck.jp" />
+    <None Include="..\FoldersToCheck.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

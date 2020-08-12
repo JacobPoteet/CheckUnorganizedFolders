@@ -1,2 +1,3 @@
 ﻿  UnorganizedFileChecker.cpp
+C:\Users\gwlpo\OneDrive\Documents\GitHub\CheckUnorganizedFolders\UnorganizedFileChecker\UnorganizedFileChecker.cpp(42,53): warning C4244: '+=': conversion from 'uintmax_t' to 'int', possible loss of data
   UnorganizedFileChecker.vcxproj -> C:\Users\gwlpo\OneDrive\Documents\GitHub\CheckUnorganizedFolders\UnorganizedFileChecker\Debug\UnorganizedFileChecker.exe

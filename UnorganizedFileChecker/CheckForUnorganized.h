@@ -12,10 +12,12 @@ namespace fs = std::filesystem;
 //------------------------------------
 /*Global Variable*/
 //-----------------------------------
-string FileToSearch = "FoldersToCheck.jp";
+string FileToSearch = "FoldersToCheck.txt";
 ifstream folderFile;
 
 //------------------------------------
+
+
 
 
 //------------------------------------
@@ -27,6 +29,10 @@ void PauseCommandPrompt() { system("pause"); };
 
 
 // Returns all file paths that need checked
-vector<string> LoadInPaths();
+vector<fs::path> LoadInPaths();
+
+
+//debug print
+void PrintString(string message);
 
 //------------------------------------
