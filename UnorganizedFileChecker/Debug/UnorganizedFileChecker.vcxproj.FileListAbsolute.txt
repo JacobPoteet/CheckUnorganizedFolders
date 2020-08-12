@@ -1,0 +1,2 @@
+C:\Users\gwlpo\OneDrive\Documents\GitHub\CheckUnorganizedFolders\UnorganizedFileChecker\Debug\UnorganizedFileChecker.exe
+C:\Users\gwlpo\OneDrive\Documents\GitHub\CheckUnorganizedFolders\UnorganizedFileChecker\Debug\UnorganizedFileChecker.pdb
