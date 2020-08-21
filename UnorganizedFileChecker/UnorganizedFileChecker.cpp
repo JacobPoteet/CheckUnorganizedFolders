@@ -9,6 +9,7 @@ int main(){
     //Save all file locations as strings in a vector
     vector<fs::path> paths = LoadInPaths();
     int totalSize = 0;
+    int totalFiles = 0;
 
     PrintString("Processing...");
     cout << endl;
@@ -27,6 +28,8 @@ int main(){
     PrintString("");
     //------------------------------------------
 
+    /*NOTE: I know this runs through the vector twice. I could've written it to save off each path status and then display it at the end
+    but since the size of the vector will always be small it is much faster to just run through it twice. */
 
     //------------------------------------------
     //print folders and contents information
@@ -38,12 +41,17 @@ int main(){
             fs::directory_iterator tempDirectorIter(paths.at(i));
 
             totalSize = 0;
+            totalFiles = 0;
             for (auto& p : fs::directory_iterator(paths.at(i))) {
                 totalSize += fs::file_size(p.path());
+                totalFiles++;
            }
 
             cout << paths.at(i).string() << " | ";
-            cout << (totalSize) << " bytes " << endl;
+            cout << fixed << setprecision(2) << ((totalSize) / 1000000.0) << " MBs ";
+            cout << " | " << totalFiles << " files ";
+            cout << endl;
+
 
         
         }
